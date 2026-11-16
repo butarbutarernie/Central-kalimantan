@@ -1,0 +1,123 @@
+{
+  "study_title": "Monthly Sentinel-2 vegetation and fire-associated spectral change in Central Kalimantan, 2026",
+  "research_freeze_date_utc": "2026-11-11",
+  "run_timestamp_utc": "2026-11-11T09:39:09.187672+00:00",
+  "google_cloud_project": "ee-butarbutarernie",
+  "analysis_extent": "Kalimantan Tengah, Indonesia, GAUL 2015 level 1",
+  "detail_regency": "Pulang Pisau",
+  "detail_regency_gaul_adm2_name": "Pulangpisau",
+  "year": 2026,
+  "complete_months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "data_end_exclusive": "2026-11-01",
+  "datasets": {
+    "sentinel2_sr": "COPERNICUS/S2_SR_HARMONIZED",
+    "cloud_score": "GOOGLE/CLOUD_SCORE_PLUS/V1/S2_HARMONIZED",
+    "roi_province": "FAO/GAUL/2015/level1",
+    "roi_regency": "FAO/GAUL/2015/level2",
+    "viirs_nrt_snpp": "NASA/LANCE/SNPP_VIIRS/C2",
+    "viirs_nrt_noaa20": "NASA/LANCE/NOAA20_VIIRS/C2",
+    "modis_burned_area": "MODIS/061/MCD64A1",
+    "firms_archive_csv": null
+  },
+  "cloud_score_band": "cs_cdf",
+  "cloud_score_threshold": 0.6,
+  "allowed_scl": [
+    4,
+    5,
+    7
+  ],
+  "max_scene_cloud_percent": 90,
+  "min_clear_observations_per_pixel": 2,
+  "province_summary_scale_m": 500,
+  "provincial_stats_execution": "sequential_one_combined_reduceRegion_per_month",
+  "change_stats_execution": "sequential_one_combined_reduceRegion_per_month_pair",
+  "transition_stats_config_sha256": "dd009efcf3a0ba7ba9fd858343a88bb16284e037a6fe58998d20c7a5bf869a8b",
+  "transition_stats_checkpoint": "/content/drive/MyDrive/Kalteng_Fire_2026_Journal_Research/Kalteng_2026_Intermonth_PARTIAL_v05_dd009efcf3a0.csv",
+  "transition_stats_computed": true,
+  "monthly_map_count": 20,
+  "paired_change_map_count": 18,
+  "deltaNDVI_sign": "NDVI_current - NDVI_previous",
+  "dNBR_sign": "NBR_previous - NBR_current",
+  "paired_pixel_support_required": true,
+  "provincial_stats_config_sha256": "e4d36c5821ff93c1479834f3345c09051a051e83039f8f0417ac57527e71d9cc",
+  "monthly_stats_checkpoint_file": "/content/drive/MyDrive/Kalteng_Fire_2026_Journal_Research/Kalteng_2026_Monthly_QC_PARTIAL_v04_e4d36c5821ff.csv",
+  "detail_spatial_scale_m": 20,
+  "province_export_scale_m": 250,
+  "export_list": [
+    "Province_NDVI_10months",
+    "Province_NBR_10months",
+    "Province_deltaNDVI_9transitions",
+    "Province_dNBR_9transitions",
+    "Province_validObs_10months",
+    "Province_pairSupport_9transitions",
+    "PulangPisau_NDVI_10months_20m",
+    "PulangPisau_NBR_10months_20m",
+    "PulangPisau_deltaNDVI_9transitions_20m",
+    "PulangPisau_dNBR_9transitions_20m",
+    "PulangPisau_Event_dNBR_20m_EXPLORATORY"
+  ],
+  "export_max_tasks_per_run": 1,
+  "province_screening_crs": "EPSG:4326",
+  "district_analysis_crs": "EPSG:32749",
+  "district_centroid_lonlat": [
+    113.96390148837936,
+    -2.7590282653497575
+  ],
+  "export_crs_by_extent": {
+    "province": "EPSG:4326",
+    "district": "EPSG:32749"
+  },
+  "area_accounting": "ee.Image.pixelArea() per sampled pixel, not constant area per pixel",
+  "pre_fire_window_end_exclusive": [
+    "2026-07-01",
+    "2026-08-01"
+  ],
+  "post_fire_window_end_exclusive": [
+    "2026-09-01",
+    "2026-10-01"
+  ],
+  "event_verified": false,
+  "reference_dnBR_thresholds_uncalibrated": [
+    0.1,
+    0.27,
+    0.44,
+    0.66
+  ],
+  "firms_archive_provided": false,
+  "viirs_nrt_is_not_science_quality": true,
+  "qa_notburned_not_equivalent_to_no_hotspot": true,
+  "software": {
+    "python": "3.13.18",
+    "earthengine_api": "1.7.52",
+    "geemap": "0.38.9",
+    "pandas": "3.1.1",
+    "numpy": "2.4.6"
+  },
+  "export_tasks": [],
+  "validation_status": "requires_independent_labels",
+  "limitations": [
+    "2026 Nov-Dec not included as complete months at frozen date",
+    "Monthly provincial means at 500m are approximate screening summaries",
+    "Default event windows are illustrative, not independently verified",
+    "Cloud and dark-pixel omission may bias burn delineation",
+    "NRT VIIRS is not science-quality historical validation",
+    "Static administrative geometry does not represent 2026 boundary updates",
+    "Inter-month dNBR does not imply a confirmed fire event or severity",
+    "Change maps are eligible only on intersection of valid monthly composites",
+    "UTM is not an equal-area projection; pixel areas use ee.Image.pixelArea()",
+    "Provincial screening and district detail use different specified CRSs/scales",
+    "Concurrent interactive EE quota remains a service limit even with sequential month-by-month reductions",
+    "NBR/dNBR can reflect non-fire hydrology, land clearing or phenology changes"
+  ]
+}
